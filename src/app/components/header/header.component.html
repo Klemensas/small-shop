@@ -1,0 +1,10 @@
+<header>
+  <div class="container row between-xs">
+    <div class="col-xs-6">
+      <a *ngIf="!this.location.isCurrentPathEqualTo('')" (click)="goBack()" href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i>back</a>
+    </div>
+    <div class="col-xs-6 end-xs">
+      <a routerLink="/cart" >cart stuff {{cartItemCount}}</a>
+    </div>
+  </div>
+</header>

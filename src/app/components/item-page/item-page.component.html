@@ -1,0 +1,9 @@
+<app-item [item]="item"></app-item>
+Available colors:
+<label *ngFor="let color of item.colors">{{color}}
+  <input type="radio" name="color" [value]="color" [(ngModel)]="pickedColor">
+</label>
+<div>
+  <span *ngIf="!pickedColor">Please select a color first</span>
+  <button (click)="addToCart(item, pickedColor)" [disabled]="!pickedColor" type="button">Add to cart</button>
+</div>

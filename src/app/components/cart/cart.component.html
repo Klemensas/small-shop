@@ -1,0 +1,14 @@
+<div *ngIf="!items.length">
+  No items in cart
+</div>
+<div *ngIf="items.length">
+  Your cart:
+  <div *ngFor="let item of items">
+    <app-item [item]="item"></app-item>
+    color
+    <button (click)="removeFromCart(item)">remove</button>
+  </div>
+  <div>
+    Total: {{totalSum | currency:'USD'}}
+  </div>
+</div>

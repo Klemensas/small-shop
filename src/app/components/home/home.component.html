@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="item-filter col-xs-12 end-xs">
+    Filter:
+    <label><input type="checkbox" (click)="updateFilter('blue')">Blue</label>
+    <label><input type="checkbox" (click)="updateFilter('green')">Green</label>
+    <label><input type="checkbox" (click)="updateFilter('gray')">Gray</label>
+  </div>
+  <div *ngFor="let item of items | colorFilter:filter" class="col-sm-4 col-lg-3">
+    <div class="item-card">
+      <a [routerLink]="['/item', item.name]">
+        <app-item [item]="item"></app-item>
+      </a>
+    </div>
+  </div>
+</div>

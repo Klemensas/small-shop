@@ -1,0 +1,27 @@
+@import '../../../variables';
+
+$card-bg: #fefefe;
+
+.item-filter {
+    margin-bottom: 1rem;
+}
+
+.item-card {
+    margin-bottom: 1rem;
+    background-color: $card-bg;
+    // border: 1px solid darken($card-bg, 30%);
+    border-radius: 0.25rem;
+    box-shadow: 0px 1px 3px 0opx rgba(darken($body-bg, 30%),0.75);
+
+
+    /deep/ .item {
+        .item-picture {
+            width: 100%;
+            height: auto;
+        }
+
+        .item-content {
+            padding: 1rem;
+        }
+    }
+}
