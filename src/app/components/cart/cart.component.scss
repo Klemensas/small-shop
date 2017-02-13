@@ -1,0 +1,36 @@
+@import '../../../variables';
+
+.item-card /deep/ {
+    .item {
+        display: flex;
+        align-items: center;
+
+        .item-content {
+            padding: 0 0 0 1rem;
+            text-align: left;
+        }
+
+        .item-image-container {
+            flex-basis: 40%;
+            max-width: 40%;
+        }
+    }
+}
+
+.item-cart-actions {
+    padding: 0 0.5rem;
+}
+
+.remove-button {
+    position: absolute;
+    bottom: 0.25rem;
+    right: 0.5rem;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: $transition-time $transition-easing;
+
+    &:hover,
+    &:focus {
+        opacity: 1;
+    }
+}

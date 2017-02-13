@@ -1,14 +1,34 @@
-<div *ngIf="!items.length">
-  No items in cart
-</div>
-<div *ngIf="items.length">
-  Your cart:
-  <div *ngFor="let item of items">
-    <app-item [item]="item"></app-item>
-    color
-    <button (click)="removeFromCart(item)">remove</button>
+<div class="content-bg center-xs">
+  <div *ngIf="!items.length" class="padding-1-0">
+    <strong>Empty Cart</strong>
   </div>
-  <div>
-    Total: {{totalSum | currency:'USD'}}
+  <div *ngIf="items.length">
+    <div class="content-top">
+      <strong>Your cart ({{items.length}})</strong>
+    </div>
+    <div class="content-items row">
+      <div *ngFor="let item of items" class="col-md-6 col-lg-4 col-sm-6 col-xs-12">
+        <div class="item-card">
+          <div class="row middle-xs">
+            <app-item [item]="item" class="col-xs-10"></app-item>
+            <div class="col-xs-2">
+                <span class="color-field active">
+                  <span class="color-field-display" [style.backgroundColor]="item.pickedColor"></span>
+                </span>
+            </div>
+          </div>
+          <a (click)="removeFromCart(item)" class="remove-button"><i class="fa fa-trash fa-lg"></i></a>
+        </div>
+
+      </div>
+    </div>
+    <div class="content-bottom">
+      <div class="row start-xs middle-xs">
+        <div class="col-xs-6">
+          <strong>Total</strong>
+        </div>
+        <div class="col-xs-6 end-xs">{{totalSum | currency:'USD'}}</div>
+      </div>
+    </div>
   </div>
 </div>
