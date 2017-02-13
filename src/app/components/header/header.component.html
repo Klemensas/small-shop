@@ -1,10 +1,16 @@
-<header>
-  <div class="container row between-xs">
-    <div class="col-xs-6">
-      <a *ngIf="!this.location.isCurrentPathEqualTo('')" (click)="goBack()" href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i>back</a>
-    </div>
-    <div class="col-xs-6 end-xs">
-      <a routerLink="/cart" >cart stuff {{cartItemCount}}</a>
+<header class="header">
+  <div class="container-fluid">
+    <div class="row between-xs accent-color middle-xs">
+      <div class="col-xs-3">
+        <a *ngIf="!this.location.isCurrentPathEqualTo('')" (click)="goBack()" href="#" class="back-button header-button"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
+      </div>
+      <div class="col-xs-6 center-xs"><h1>Small shop</h1></div>
+      <div class="col-xs-3 end-xs">
+        <a routerLink="/cart" href="#" class="header-button">
+          <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
+          <span *ngIf="cartItemCount" class="cart-item-count">{{cartItemCount}}</span>
+        </a>
+      </div>
     </div>
   </div>
 </header>
