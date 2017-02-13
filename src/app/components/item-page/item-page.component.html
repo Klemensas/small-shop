@@ -1,9 +1,24 @@
-<app-item [item]="item"></app-item>
-Available colors:
-<label *ngFor="let color of item.colors">{{color}}
-  <input type="radio" name="color" [value]="color" [(ngModel)]="pickedColor">
-</label>
-<div>
-  <span *ngIf="!pickedColor">Please select a color first</span>
-  <button (click)="addToCart(item, pickedColor)" [disabled]="!pickedColor" type="button">Add to cart</button>
+<div class="row center-xs">
+  <div class="start-xs col-lg-4 col-md-6 col-sm-8 col-xs-12">
+    <div class="item-card">
+      <app-item [item]="item"></app-item>
+      <div class="item-card-selection">
+        <div class="row between-xs">
+          <div class="col-xs-6">
+            <b>Available colors</b>
+          </div>
+          <div class="col-xs-6 end-xs">
+            <label *ngFor="let color of item.colors" class="color-field">
+              <input type="radio" name="color" [value]="color" [(ngModel)]="pickedColor">
+              <span class="color-field-display" [style.backgroundColor]="color"></span>
+            </label>
+          </div>
+          <div class="col-xs-12 center-xs padding-top-1">
+            <p class="warning" *ngIf="!pickedColor">Please select a color first</p>
+            <button (click)="addToCart(item, pickedColor)" [disabled]="!pickedColor" type="button" class="button">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
