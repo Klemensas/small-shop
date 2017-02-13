@@ -5,6 +5,8 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 @Injectable()
 export class ItemDataService {
   // Item generation specific variables
+  private imageLocation = './assets/images/fl';
+  private itemNames = ['Thorny Rose', 'Gerbera', 'Clover', 'Dandelion', 'Budding Tree', 'Amazing Bouquet', 'Sunflower', 'Wildflower', 'Saffron', 'Hydrangea'];
   private availableColors = ['blue', 'green', 'gray'];
   private itemsToGenerate = 10;
 
@@ -38,9 +40,9 @@ export class ItemDataService {
     const items:Item[] = [];
     for (let i = 0; i < this.itemsToGenerate; i++) {
       items.push({
-        name: '2' + Math.random(),
+        name: this.itemNames[i],
         price: Number((Math.random() * 100).toFixed(2)),
-        image: 'tst',
+        image: `${this.imageLocation}${i+1}.png`,
         colors: pickColors(this.availableColors)
       });
     }
