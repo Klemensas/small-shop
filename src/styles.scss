@@ -1,5 +1,163 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin');
+
 @import './variables';
 
+html {
+    height: 100%;
+    font-size: 100%;
+}
+
 body {
-    background-color: $body-bg; 
+    min-height: 100%;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: 'Cabin';
+    background-color: $body-bg;
+    color: darken($accent-color, 40%);
+}
+
+h1 {
+    font-size: 1.75em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+strong {
+    font-weight: 700;
+    font-size: 1.25em;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.warning {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: $warning-color;
+}
+
+.button {
+    padding: 0.5rem 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: desaturate($accent-color, 20%);
+    color: $card-bg;
+    border: 0;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: $transition-time $transition-easing;
+
+    &:hover,
+    &:focus {
+        background-color: saturate($accent-color, 10%);
+    }
+
+    &[disabled] {
+        background-color: grayscale($accent-color)
+    }
+}
+
+.padding-top-1 {
+    padding-top: 1rem;
+}
+.padding-1-0 {
+    padding: 1rem 0;
+}
+
+.item-card {
+    position: relative;
+    margin-bottom: 1rem;
+    background-color: $card-bg;
+    border-radius: 0.25rem;
+    box-shadow: 0px 1px 1px 0px rgba(darken($body-bg, 30%), 0.5);
+    overflow: hidden;
+
+    .item {
+        .item-image {
+            border-bottom: 1px solid darken($card-bg, 20%);
+        }
+
+        .item-content {
+            padding: 1.5rem 1rem;
+        }
+    }
+}
+
+.color-field {
+
+    input {
+        display: none;
+    }
+
+    .color-field-display {
+        opacity: 0.5;
+        display: inline-flex;
+        width: 1.5rem;
+        height: 1rem;
+        border: 2px solid transparent;
+        transition: $transition-time $transition-easing;
+        cursor: pointer;
+        box-sizing: border-box;
+    }
+
+    &:hover,
+    &:focus,
+    &.active {
+        .color-field-display {
+            opacity: 1;
+        }
+    }
+
+    :checked + .color-field-display {
+        opacity: 1;
+        border-color: #000;
+    }
+}
+
+.content-bg {
+    margin-bottom: 2rem;
+    overflow: hidden;
+    background: lighten($body-bg, 5%);
+    border-radius: 0.25rem;
+    box-shadow: 0px 1px 1px 0px rgba(darken($body-bg, 30%), 0.5);
+}
+
+.content-top {
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    background-color: complement(lighten($accent-color, 10%));
+    color: $font-light;
+    box-shadow: 0px 1px 0px 0px rgba($body-bg, 0.75);
+}
+
+.content-items {
+    padding: 0 1rem;
+}
+
+.content-bottom {
+    background-color: $accent-color;
+    padding: 0.5rem 1rem;
+    border-top: 1px solid rgba($body-bg, 0.75);
+    color: $font-light;
+}
+
+.focus-scale {
+    transition: $transition-time $transition-easing;
+    transform: scale(1) translateZ(0);
+
+    &:hover,
+    &:focus {
+        transform: scale(1.05) translateZ(0);
+        box-shadow: 0px 0px 10px 1px rgba(darken($body-bg, 30%), 0.75);
+    }
 }
